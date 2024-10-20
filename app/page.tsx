@@ -1,3 +1,4 @@
+import { getAllBorrowers } from '@/lib/actions/borrower.action';
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
 import Link from 'next/link';
 
