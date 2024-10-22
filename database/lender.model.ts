@@ -1,20 +1,16 @@
 import {models, model, Document, Schema} from 'mongoose';
 
 export interface ILender extends Document {
-    name: string;
-    email: string;
+    user: Schema.Types.ObjectId;
     availableFunds: number;
     loansFunded: Schema.Types.ObjectId[];
-    rating: number;
     totalLoansLent: number;
 }
 
 const LenderSchema = new Schema<ILender>({
-    name: {type: String, required: true},
-    email: {type: String, required: true},
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
     availableFunds: {type: Number, default: 0},
     loansFunded: [{type: Schema.Types.ObjectId, ref: 'LoanRequest'}],
-    rating: {type: Number, default: 0},
     totalLoansLent: {type: Number, default: 0}
 })
 
